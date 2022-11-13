@@ -1,6 +1,7 @@
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
-
+import RecipeList from "../pages/RecipeList";
+import { Link } from "react-router-dom";
 function HomePageDisplay() {
   return (
     <Carousel fade>
@@ -13,7 +14,12 @@ function HomePageDisplay() {
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          <Button variant="success">Learn More</Button>{" "}
+          <Link to="/recipelist">
+            <Button variant="success" onClick="/recipelist">
+              Learn More
+            </Button>
+            {""}
+          </Link>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -26,7 +32,12 @@ function HomePageDisplay() {
         <Carousel.Caption>
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>{" "}
-          <Button variant="success">Learn More</Button>{" "}
+          <Link to="/recipelist">
+            <Button variant="success" onClick="/recipelist">
+              Learn More
+            </Button>
+            {""}
+          </Link>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -41,7 +52,12 @@ function HomePageDisplay() {
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
-          <Button variant="success">Learn More</Button>{" "}
+          <Link to="/recipelist">
+            <Button variant="success" onClick="/recipelist">
+              Learn More
+            </Button>
+            {""}
+          </Link>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
