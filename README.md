@@ -14,7 +14,7 @@ In order to run the app, do the following steps:
 2. Open a new terminal, then cd server, then npm i to install all server dependencies, then run npm to start server instance
 3. Open a new terminal to use git while the first two terminals are running the client and server apps
 
-##Workflow:
+## Workflow:
 Make sure you’re on master. Update your master to be most up-to-date before creating another branch. Your local history must be synced with GitHub’s master history (your local master is master, GitHub’s master is origin/master)
 You sync it with git pull (meaning to pull all new commits from origin/master to your master).
 Use git log to make sure both master and origin/master are pointing to the same commit, which is also the same commit if you check on GitHub's. This is really important, because otherwise when you branch, you will need to sync your branch's history with origin/master, creating another unnecessary commit and most likely leading to a merge conflict.
