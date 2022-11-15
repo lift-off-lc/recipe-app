@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+
 function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
@@ -42,6 +43,9 @@ function NavBar() {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
+          <Nav>
+              <Nav.Link href="/login">LOGIN</Nav.Link>
+          </Nav>
             
           </Form>
         </Navbar.Collapse>

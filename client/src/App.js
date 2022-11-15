@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import "./index.css";
 import NavBar from "./components/NavBar";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/recipe" element={<Recipe />} />
             <Route path="/recipelist" element={<RecipeList />} />
+            <Route path="/login" element={<Login />} />
             // * prefer to render to other path that did not listed above
             <Route path="*" element={<NotFound />} />
           </Routes>
