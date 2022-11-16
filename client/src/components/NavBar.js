@@ -22,7 +22,7 @@ function NavBar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/recipelist">All Recipes</Nav.Link>
             <NavDropdown title="Manage Recipe" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">My Favorite</NavDropdown.Item>
+              <NavDropdown.Item href="#action3">My Favorites</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
                 Add Recipe
               </NavDropdown.Item>
