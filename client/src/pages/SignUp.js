@@ -52,13 +52,15 @@ function SignUp() {
 
                     <div className="fine-print" style={{ paddingTop: "10px"}}>
                         <label/>Passwords must include:
-                        <ul style={{ textAlign: "left"}}>
-                            <li className="even-finer-print">At least 6 characters</li>
-                            <li className="even-finer-print">At least 1 uppercase letter</li>
-                            <li className="even-finer-print">At least 1 lowercase letter</li>
-                            <li className="even-finer-print">At least 1 number</li>
-                            <li className="even-finer-print">At least 1 special character</li>
-                        </ul>
+                        <div className="even-finer-print">
+                            <ul style={{alignItems: "left"}}>
+                                <li>At least 6 characters</li>
+                                <li>At least 1 uppercase letter</li>
+                                <li>At least 1 lowercase letter</li>
+                                <li>At least 1 number</li>
+                                <li>At least 1 special character</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 

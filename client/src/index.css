@@ -90,6 +90,7 @@ code {
   font-size: smaller;
   font-weight: normal;
   text-emphasis-style: italic;
+  text-align: left;
 }
 
 label {
