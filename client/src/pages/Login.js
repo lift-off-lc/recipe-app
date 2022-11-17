@@ -34,6 +34,9 @@ function Login() {
           <p className="forgot-password text-right mt-2">
             Forgot <a href="#">password?</a>
           </p>
+          <p className="sign-up text-right mt-2">
+            Don't have an account? <a href="./SignUp">Sign Up</a>
+          </p>
         </div>  
               </div>
             </form>
