@@ -11,6 +11,7 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import "./index.css";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             // * prefer to render to other path that did not listed above
             <Route path="*" element={<NotFound />} />
+            <Route path="/signUp" element={<SignUp />} />
           </Routes>
         </div>
       </div>

@@ -35,7 +35,7 @@ function Login() {
             Forgot <a href="#">password?</a>
           </p>
           <p className="sign-up text-right mt-2">
-            Don't have an account? <a href="#">Sign Up</a>
+            Don't have an account? <a href="./pages/SignUp">Sign Up</a>
           </p>
         </div>  
               </div>
