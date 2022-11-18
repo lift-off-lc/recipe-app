@@ -36,7 +36,7 @@ Go back to your-branch now with git checkout your-branch. Rebase your branch's h
 Reapply your temp changes into the new history (1->2->3->4y->5y) with git stash apply
 If you don't have temp changes, and you already had 4x->5x, at this point your history should be 1->2->3->4y->5y->4x->5x. You could safely push now
 
-##MONGO DB GUIDE:
+## MONGO DB GUIDE:
 1. Open a terminal, cd server (if you are not in server), enter `mongo` to start mongo server. 
 2. To check what database you are using , enter `db`. 
 3. Enter `use recipes` to access to our database
