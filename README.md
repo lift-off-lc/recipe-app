@@ -35,3 +35,11 @@ Go back to master with git checkout master. Then update master with git pull. Yo
 Go back to your-branch now with git checkout your-branch. Rebase your branch's history with git rebase master. (Your files may be the same as the other person's, then a merge conflict is inevitable). 
 Reapply your temp changes into the new history (1->2->3->4y->5y) with git stash apply
 If you don't have temp changes, and you already had 4x->5x, at this point your history should be 1->2->3->4y->5y->4x->5x. You could safely push now
+
+##MONGO DB GUIDE:
+1. Open a terminal, cd server (if you are not in server), enter `mongo` to start mongo server. 
+2. To check what database you are using , enter `db`. 
+3. Enter `use recipes` to access to our database
+4. To find all recipes in our databse , enter `db.recipes.find({}).pretty()`
+5. To insert many recipes, enter `db.recipes.inserMany([{recipe abc },{recipe def }])`
+6. To insert one recipe, enter `db.recipes.insertOne({recipe abc })`
