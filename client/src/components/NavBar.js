@@ -11,7 +11,7 @@ function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">RECIPE APP</Navbar.Brand>
+        <Navbar.Brand href="/">RECIPE APP</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -20,7 +20,7 @@ function NavBar() {
             navbarScroll
           >
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/recipelist">All Recipes</Nav.Link>
+            <Nav.Link href="/recipe">All Recipes</Nav.Link>
             <NavDropdown title="Manage Recipe" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">My Favorites</NavDropdown.Item>
               <NavDropdown.Item href="#action4">

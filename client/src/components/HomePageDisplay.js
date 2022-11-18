@@ -1,6 +1,5 @@
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
-import RecipeList from "../pages/RecipeList";
 import { Link } from "react-router-dom";
 function HomePageDisplay() {
   return (

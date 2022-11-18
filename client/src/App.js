@@ -1,7 +1,6 @@
 import "./App.css";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
-import Recipe from "./pages/Recipe";
 import RecipeList from "./pages/RecipeList";
 import React from "react";
 
@@ -12,6 +11,7 @@ import "./index.css";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import RecipeDetails from "./pages/RecipeDetails";
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
         <div className="page.body">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/recipe" element={<Recipe />} />
-            <Route path="/recipelist" element={<RecipeList />} />
+            <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
+            <Route path="/recipe" element={<RecipeList />} />
             <Route path="/login" element={<Login />} />
             // * prefer to render to other path that did not listed above
             <Route path="*" element={<NotFound />} />
