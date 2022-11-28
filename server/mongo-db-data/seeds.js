@@ -1,4 +1,4 @@
-//use recipes;
+use recipes;
 
 db.dropDatabase();
 
@@ -156,5 +156,51 @@ db.recipes.insertMany([
       "https://www.nelliebellie.com/wp-content/uploads/2014/11/homemade-white-cake-recipe.png",
     category: "sweet",
     servings: 12,
+  },
+  {
+    name: "Cheese and Broccoli Bake",
+    ingredients:
+      "macaroni, tenderstem broccoli, olive oil, onion, plain flour, semi-skimmed milk",
+
+    method:
+      "Bring a large pan of salted water to the boil over a high heat. Add the macaroni and cook for 8 minutes or until it still has some bite (al dente). For the last 2 minutes add the broccoli, then drain and rinse under cold water to refresh. Cover with damp kitchen paper. Meanwhile in another large deep saucepan, warm the olive oil over a medium heat. Add the onion and gently fry for 10 minutes or until soft. Add the flour, turn up the heat slightly and cook for 2-3 minutes, stirring, until the flour turns a little darker and smells biscuity. Heat the oven to 200°C/ 180°C fan/gas 6. Turn the heat to low, then slowly add the milk, whisking all the time with a balloon whisk. Turn the heat to medium and stir until the mix thickens and boils gently. Add the spinach and half the grated cheeses. Stir until the spinach wilts and the cheese melts. Add the pasta and broccoli, season to taste, then pour into a 1.5 litre ovenproof dish (see make ahead). Mix the rest of the cheese with the breadcrumbs, then use to top the macaroni. Bake for 20-25 minutes until the top is deep golden brown and the sauce is bubbling. Serve with a sharply dressed green salad, if you like.",
+    image:
+      "https://www.deliciousmagazine.co.uk/wp-content/uploads/2018/07/612151-1-eng-GB_delicious_midweekbible_nov15_19015_maccheesespinachbroccoli-768x960.jpg",
+    category: "dinner",
+    dietary: "vegetarian",
+  },
+  {
+    name: "Granola",
+    ingredients:
+      "rolled oats, almonds, pumpkin seeds, cinnamon,salt, maple syrup",
+
+    category: "breakfast",
+
+    method:
+      " 1.Preheat the oven to 325°F and line a baking sheet with parchment paper. 2. In a large bowl, add the rolled oats, almonds, pumpkin seeds, cinnamon and salt and stir to combine. 3. In a small bowl, add the melted coconut oil, maple syrup and vanilla extract and whisk to combine. 4. Drizzle the wet ingredients over the dry ingredients and mix until everything is well coated. 5. Pour the granola onto a parchment paper-lined baking sheet and use a spatula or spoon to spread it into an even layer. 6. Transfer the baking sheet to the oven for 20 minutes, remove it from the oven and give it stir on the baking sheet, then return it to the oven for a final 10-15 minutes until golden brown. 7. Once baked, remove it from the oven, add flaked coconut and raisins, then allow to cool completely. (If you want the granola to be extra chunky, add an extra drizzle of maple syrup over the top of the warm granola to help it stick together as it cools.) 8. Once cooled, the granola can be stored in an air-tight container in the cupboard for up to a week or frozen for up to 3 months.",
+    image:
+      "https://www.thelastfoodblog.com/wp-content/uploads/2020/07/granola-close-up-2.jpg",
+  },
+  {
+    name: "Garlic Butter Steak",
+    ingredients:
+      "ribeye steak, olive oil, butter, garlic, rosemary sprig, thyme spring",
+    category: "dinner",
+    method:
+      "1. Preheat oven to 200°F (95°C).2. Generously season all sides of the steak with salt and pepper.3. Transfer to a wire rack on top of a baking sheet, then bake for about 45 minutes to an hour until the internal temperature reads about 125°F (51° C) for medium-rare. Adjust the bake time based on if you like your steak more rare or more well-done (you monster).4. Heat the canola oil in a pan over high heat until smoking. Do not use olive oil, as its smoke point is significantly lower than that of canola oil and will smoke before reaching the desired cooking temperature.5. Sear the steak for 30 seconds on the first side, then flip.6. Add the butter, garlic, rosemary, and thyme and swirl around the pan.7. Transfer the garlic and herbs on top of the steak and baste the steak with the butter using a large spoon.8. Baste for about 30 seconds, then flip and baste the other side for about 15 seconds.9. Turn the steak on its side and cook to render off any excess fat.10. Rest the steak on a cutting board or wire rack for about 10 minutes. Slicing the steak before the resting period has finished will result in a lot of the juices leaking out, which may not be desirable. 11. Slice the steak into 0.5 -inch (1 cm) strips, then fan out the slices and serve.",
+    image:
+      "https://natashaskitchen.com/wp-content/uploads/2020/03/Pan-Seared-Steak-4-500x500.jpg",
+  },
+  {
+    name: "Saucy bean baked eggs",
+    ingredients:
+      "cherry tomatoes(canned), mixed beans(canned),spinach, eggs, ham",
+
+    method:
+      "STEP 1 Tip the tomatoes and bean salad into an ovenproof frying pan or shallow flameproof casserole dish. Simmer for 10 mins, or until reduced. Stir in the spinach and cook for 5 mins more until wilted. STEP 2 Heat the grill to medium. Make four indentations in the mixture using the back of a spoon, then crack one egg in each. Nestle the ham in the mixture, then grill for 4-5 mins, or until the whites are set and the yolks runny. Serve with rye bread, if you like.",
+    image:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/saucy-bean-baked-eggs-d582e18.jpg",
+
+    category: "lunch",
   },
 ]);

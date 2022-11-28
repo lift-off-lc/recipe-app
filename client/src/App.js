@@ -12,6 +12,9 @@ import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import RecipeDetails from "./pages/RecipeDetails";
+import Footer from "./components/Footer";
+import AddRecipe from "./pages/AddRecipe";
+import FavoriteRecipe from "./pages/FavoriteRecipe";
 
 function App() {
   return (
@@ -24,11 +27,14 @@ function App() {
             <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
             <Route path="/recipe" element={<RecipeList />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/addrecipe" element={<AddRecipe />} />
+            <Route path="/favoriterecipe" element={<FavoriteRecipe />} />
+            <Route path="/signUp" element={<SignUp />} />
             // * prefer to render to other path that did not listed above
             <Route path="*" element={<NotFound />} />
-            <Route path="/signUp" element={<SignUp />} />
           </Routes>
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );

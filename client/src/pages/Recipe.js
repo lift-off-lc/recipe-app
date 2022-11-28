@@ -1,18 +1,36 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import React from "react";
+import Rating from "@mui/material/Rating";
 
 export default function Recipe(props) {
   return (
-    <div className="container">
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={props.recipe.image} />
+    <Col className="p-3">
+      <Card border="dark" style={{ width: "20rem" }}>
+        <Card.Img
+          variant="top"
+          src={props.recipe.image}
+          style={{ width: "auto", height: "300px", overflow: "hidden" }}
+        />
         <Card.Body>
-          <Card.Title>{props.recipe.name}</Card.Title>
+          <Card.Title className="text-truncate">{props.recipe.name}</Card.Title>
+          <Row
+            style={{
+              position: "relative",
+              left: "80px",
+              paddingBottom: "10px",
+            }}
+          >
+            <Rating name="read-only" value="5" readOnly />
+          </Row>
 
-          <Button variant="primary" href={`/recipe/${props.recipe._id}`}>Learn More</Button>
+          <Button variant="success" href={`/recipe/${props.recipe._id}`}>
+            Learn More
+          </Button>
         </Card.Body>
       </Card>
-    </div>
+    </Col>
   );
 }

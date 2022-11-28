@@ -7,7 +7,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-// app.use(express);
 
 //display recipe details
 app.get("/recipe/:id", async (req, res) => {
@@ -21,6 +20,18 @@ app.get("/recipe", (req, res) => {
     .find()
     .toArray()
     .then((documents) => res.send(documents));
+});
+
+//add recipe
+
+//delete recipe
+app.delete("/recipe/:id", async (req, res) => {
+  const { id } = req.params;
+  const recipe = await db
+    .collection("recipes")
+    .deleteOne({ _id: ObjectId(id) });
+    recipe ? res.json(recipe) : res.status(404);
+ 
 });
 
 //connect to database
