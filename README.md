@@ -11,8 +11,8 @@ We are using a monorepo, meaning we store both the client and the server in the 
 ## Instructions:
 In order to run the app, do the following steps:
 1. Open a new terminal, then `cd` client, then `npm i` to install all client dependencies, then `npm start` 
-2. Open a new terminal, then `cd` server, then`npm i` to install all server dependencies, then run `npm run dev` to start server instance
-3. Open a new terminal to use git while the first two terminals are running the client and server apps
+2. Open a new terminal, then `cd` server, then`npm i` to install all server dependencies, then run `npm run seeds` to seed database.
+3. After successfully seeding datbase, run `npm run dev` to start server instance
 
 ## Workflow:
 Make sure you’re on master. Update your master to be most up-to-date before creating another branch. Your local history must be synced with GitHub’s master history (your local master is master, GitHub’s master is origin/master). `git checkout master`

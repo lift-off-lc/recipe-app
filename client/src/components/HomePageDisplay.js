@@ -13,8 +13,8 @@ function HomePageDisplay() {
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          <Link to="/recipelist">
-            <Button variant="success" onClick="/recipelist">
+          <Link to="/recipe">
+            <Button variant="success" onClick="/recipe">
               Learn More
             </Button>
             {""}
@@ -31,8 +31,8 @@ function HomePageDisplay() {
         <Carousel.Caption>
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>{" "}
-          <Link to="/recipelist">
-            <Button variant="success" onClick="/recipelist">
+          <Link to="/recipe">
+            <Button variant="success" onClick="/recipe">
               Learn More
             </Button>
             {""}
@@ -51,8 +51,8 @@ function HomePageDisplay() {
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
-          <Link to="/recipelist">
-            <Button variant="success" onClick="/recipelist">
+          <Link to="/recipe">
+            <Button variant="success" onClick="/recipe">
               Learn More
             </Button>
             {""}
