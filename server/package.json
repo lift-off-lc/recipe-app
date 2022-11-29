@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js",
-    "seeds" : "mongo < mongo-db-data/seeds.js"
+    "seeds" : "mongosh < mongo-db-data/seeds.js"
     
   },
   "keywords": [],
