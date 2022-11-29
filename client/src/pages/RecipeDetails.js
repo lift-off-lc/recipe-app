@@ -8,6 +8,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Badge from "react-bootstrap/Badge";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import RecipeServices from "../components/RecipeServices";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ export default function RecipeDetails() {
     //after delete navigate back to all recipes page
     setTimeout(() => navigate("/recipe"), 500);
   };
+
 
   //print recipe details
   useEffect(() => {
@@ -51,9 +53,13 @@ export default function RecipeDetails() {
                     <Rating name="read-only" value="5" readOnly />
                   </p>
                   <p>
-                    <Button variant="outline-danger" >
-                      Add to favorites <FavoriteIcon />
-                    </Button>{" "}
+                    <Button variant="outline-danger" size="sm" >
+                      My Favorites <FavoriteIcon />
+                    </Button>
+                    <Button variant="outline-success" size ="sm">
+                      Add to  <ShoppingCartIcon/>
+                    </Button>
+                    
                   </p>
                   <p>
                     <b>Categories:</b> {recipe.category}
@@ -61,6 +67,7 @@ export default function RecipeDetails() {
                   <p>
                     <b>Ingredients: </b>
                     {recipe.ingredients}
+                    
                   </p>
 
                   <p>
@@ -126,6 +133,9 @@ export default function RecipeDetails() {
                 <img src={recipe.image} alt="project-image" class="rounded" />
                 <div class="project-info-box">
                   <p>
+                  
+                    
+                    
                     {" "}
                     <Button
                       variant="outline-warning"

@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 function NavBar() {
   return (
@@ -28,9 +29,7 @@ function NavBar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="/addrecipe">Add Recipe</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Shopping List
-            </Nav.Link>
+            <Nav.Link href="/shoppinglist">Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
