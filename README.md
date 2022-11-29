@@ -37,9 +37,9 @@ Reapply your temp changes into the new history (1->2->3->4y->5y) with git stash 
 If you don't have temp changes, and you already had 4x->5x, at this point your history should be 1->2->3->4y->5y->4x->5x. You could safely push now
 
 ## MONGO DB GUIDE:
-1. Open a terminal, cd server (if you are not in server), enter `mongo` to start mongo server. 
+1. Open a terminal, cd server (if you are not in server), enter `mongosh` to start mongo server. 
 2. To check what database you are using , enter `db`. 
 3. Enter `use recipes` to access to our database
-4. To find all recipes in our databse , enter `db.recipes.find({}).pretty()`
-5. To insert many recipes, enter `db.recipes.inserMany([{recipe abc },{recipe def }])`
-6. To insert one recipe, enter `db.recipes.insertOne({recipe abc })`
+4. To find all recipes in our databse , enter `db.recipes.find().pretty()`
+5. To insert many recipes, enter `db.recipes.insertMany([{recipe:"abc" },{recipe: "def" }])`
+6. To insert one recipe, enter `db.recipes.insertOne({recipe: "abc" })`
