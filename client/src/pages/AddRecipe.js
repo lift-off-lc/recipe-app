@@ -8,9 +8,10 @@ export default function AddRecipe() {
     
       <div class="container" >
         
-        <h1> <Badge pill bg ="dark">Add new recipe</Badge></h1>
+       
         <div class="col-md-5 col-md-offset-1" >
-          <form role="form" id="floating-label" style={{position:"relative", left:"380px",paddingBottom:"10px"}}>
+          <form role="form" id="floating-label" style={{position:"relative", left:"350px",paddingBottom:"10px"}}>
+          <h1> <Badge pill bg ="dark">Add new recipe</Badge></h1>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Name</Form.Label>
               <Form.Control type="text" placeholder="Recipe name" />

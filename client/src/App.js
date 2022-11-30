@@ -15,6 +15,7 @@ import RecipeDetails from "./pages/RecipeDetails";
 import Footer from "./components/Footer";
 import AddRecipe from "./pages/AddRecipe";
 import FavoriteRecipe from "./pages/FavoriteRecipe";
+import ShoppingList from "./pages/ShoppingList";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/addrecipe" element={<AddRecipe />} />
             <Route path="/favoriterecipe" element={<FavoriteRecipe />} />
+            <Route path ="/shoppinglist" element={<ShoppingList/>}/>
             <Route path="/signUp" element={<SignUp />} />
             // * prefer to render to other path that did not listed above
             <Route path="*" element={<NotFound />} />
