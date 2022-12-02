@@ -6,13 +6,14 @@ function HomePageDisplay() {
     <Carousel fade>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 opacity-75"
           alt="First slide"
           src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzV8fGZvb2R8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3 className="fw-semibold">Add Some Flavor to Mealtime</h3>
+          <p>Explore a profusion of professional and home-cooked recipes: </p>
+          <p className="fw-light">Find fresh takes on old favorites, or lay your oven-mitts on your next signature recipe for the upcoming occasion</p>
           <Link to="/recipe">
             <Button variant="success" onClick="/recipe">
               Learn More

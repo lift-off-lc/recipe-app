@@ -11,7 +11,6 @@ function SignUp() {
             </div>
 
             <div className="form-group.mt-3">
-              <label>First Name</label>
               <input
                 type="text"
                 className="form-control mt-1"
@@ -20,7 +19,6 @@ function SignUp() {
             </div>
 
             <div className="form-group.mt-3">
-              <label>Last Name</label>
               <input
                 type="text"
                 className="form-control mt-1"
@@ -29,20 +27,18 @@ function SignUp() {
             </div>
 
             <div className="form-group.mt-3">
-              <label>Email</label>
               <input
                 type="email"
                 className="form-control mt-1"
-                placeholder="example@emailClient.com"
+                placeholder="Email"
               />
             </div>
 
             <div className="form-group.mt-3">
-              <label>Password</label>
               <input
                 type="password"
                 className="form-control mt-1"
-                placeholder="Ex: $caffeineHyperLoop37!"
+                placeholder="Password"
               />
             </div>
 

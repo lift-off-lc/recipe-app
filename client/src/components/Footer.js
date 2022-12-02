@@ -8,6 +8,7 @@ import {
   MDBRow,
   MDBBtn,
 } from "mdb-react-ui-kit";
+import { Tab } from "bootstrap";
 
 export default function Footer() {
   return (
@@ -138,49 +139,55 @@ export default function Footer() {
                 </MDBCol>
 
                 <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
-                  <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+                  <h6 className="text-uppercase fw-bold mb-4 ">Developers</h6>
+                  
                   <p>
-                    <a href="#!" className="text-reset">
-                      Angular
+                    <a href="#!" className="text-reset text-decoration-none">
+                      Chloe Huynh
                     </a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">
-                      React
+                    <a href="#!" className="text-reset text-decoration-none">
+                      Brendan Downs
                     </a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Vue
+                    <a href="#!" className="text-reset text-decoration-none">
+                      Karon 'Ron' Webster
                     </a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Laravel
+                    <a href="#!" className="text-reset text-decoration-none">
+                      Nick Villone
                     </a>
                   </p>
                 </MDBCol>
 
                 <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
-                  <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
+                  <h6 className="text-uppercase fw-bold mb-4">Created Using</h6>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Pricing
+                    <a href="#!" className="text-reset fw-semibold text-decoration-none">
+                      Front End:
                     </a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Settings
+                    <a href="#!" className="text-reset fw-light text-decoration-none">
+                      ReactJS
                     </a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Orders
+                    <a href="#!" className="text-reset fw-semibold text-decoration-none">
+                      Back End:
                     </a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Help
+                    <a href="#!" className="text-reset fw-light text-decoration-none">
+                      MongoDB
+                    </a>
+                  </p>
+                  <p>  
+                    <a href="#!" className="text-reset fw-light text-decoration-none">
+                      ExpressJS
                     </a>
                   </p>
                 </MDBCol>
