@@ -1,12 +1,13 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import Search from "../pages/SearchResults";
 
 function NavBar() {
   return (
@@ -31,18 +32,10 @@ function NavBar() {
             </NavDropdown>
             <Nav.Link href="/shoppinglist">Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-            <Nav>
-              <Nav.Link href="/login">LOGIN</Nav.Link>
-            </Nav>
-          </Form>
+          < Search />
+          <Nav>
+          <Nav.Link href="/login">LOGIN</Nav.Link>
+        </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
