@@ -8,27 +8,31 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Badge from "react-bootstrap/Badge";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import RecipeServices from "../components/RecipeServices";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState(null);
 
-  //handle delete recipe
   const handleDelete = () => {
     RecipeServices.delete(recipeId);
-    //after delete navigate back to all recipes page
     setTimeout(() => navigate("/recipe"), 500);
   };
 
+  function handleFavorite() {
+    RecipeServices.addToFavorite(recipe._id);
+  }
 
-  //print recipe details
+  function handleShoppingList() {
+    RecipeServices.addToShoppingList(recipe._id);
+  }
+
   useEffect(() => {
     fetch(`http://localhost:8000/recipe/${recipeId}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data));
-  }, [recipe]);
+  }, []);
 
   return (
     <>
@@ -53,13 +57,20 @@ export default function RecipeDetails() {
                     <Rating name="read-only" value="5" readOnly />
                   </p>
                   <p>
-                    <Button variant="outline-danger" size="sm" >
-                      My Favorites <FavoriteIcon />
+                    <Button
+                      variant="outline-danger"
+                      size="sm"
+                      onClick={handleFavorite}
+                    >
+                      Add to Favorite <FavoriteIcon />
                     </Button>
-                    <Button variant="outline-success" size ="sm">
-                      Add to  <ShoppingCartIcon/>
+                    <Button
+                      variant="outline-success"
+                      size="sm"
+                      onClick={handleShoppingList}
+                    >
+                      Add to <ShoppingCartIcon />
                     </Button>
-                    
                   </p>
                   <p>
                     <b>Categories:</b> {recipe.category}
@@ -67,7 +78,6 @@ export default function RecipeDetails() {
                   <p>
                     <b>Ingredients: </b>
                     {recipe.ingredients}
-                    
                   </p>
 
                   <p>
@@ -133,9 +143,6 @@ export default function RecipeDetails() {
                 <img src={recipe.image} alt="project-image" class="rounded" />
                 <div class="project-info-box">
                   <p>
-                  
-                    
-                    
                     {" "}
                     <Button
                       variant="outline-warning"

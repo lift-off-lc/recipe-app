@@ -11,7 +11,7 @@ export default function RecipeList() {
     fetch("http://localhost:8000/recipe")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
-  }, [recipes]);
+  }, []);
 
   return (
     <Container>
