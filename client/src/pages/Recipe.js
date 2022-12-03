@@ -23,7 +23,7 @@ export default function Recipe(props) {
               paddingBottom: "10px",
             }}
           >
-            <Rating name="read-only" value="5" readOnly />
+            <Rating name="read-only" value={5} readOnly />
           </Row>
 
           <Button variant="success" href={`/recipe/${props.recipe._id}`}>

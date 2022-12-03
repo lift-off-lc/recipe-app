@@ -22,6 +22,14 @@ app.get("/recipe", (req, res) => {
     .then((documents) => res.send(documents));
 });
 
+//search all recipes
+app.get("/search", (req, res) => {
+  db.collection("recipes")
+    .find({ name: {$regex: `.*${req.query.searchTerm}.`, $options:"i"}})
+    .toArray()
+    .then((documents) => res.send(documents));
+});
+
 //add recipe
 
 //delete recipe

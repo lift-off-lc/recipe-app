@@ -24,7 +24,7 @@ export default function RecipeList() {
       </Row>
 
       <Row>
-        {recipes && recipes.map((recipe) => <Recipe recipe={recipe} />)}
+        {recipes && recipes.map((recipe) => <Recipe key={recipe.name} recipe={recipe} />)}
       </Row>
     </Container>
   );

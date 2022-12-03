@@ -14,10 +14,9 @@ function HomePageDisplay() {
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           <Link to="/recipe">
-            <Button variant="success" onClick="/recipe">
+            <Button variant="success">
               Learn More
             </Button>
-            {""}
           </Link>
         </Carousel.Caption>
       </Carousel.Item>
@@ -32,7 +31,7 @@ function HomePageDisplay() {
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>{" "}
           <Link to="/recipe">
-            <Button variant="success" onClick="/recipe">
+            <Button variant="success">
               Learn More
             </Button>
             {""}
