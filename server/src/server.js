@@ -25,7 +25,19 @@ app.get("/recipe", (req, res) => {
 //search all recipes
 app.get("/search", (req, res) => {
   db.collection("recipes")
-    .find({ "name": { $regex: `.*${req.query.searchTerm}`, $options: "i" } })
+    .find({
+      $or: [
+        {
+          name: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
+        },
+        {
+          ingredients: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
+        },
+        {
+          category: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
+        }
+      ]
+    })
     .toArray()
     .then((documents) => {
       console.log(documents);
