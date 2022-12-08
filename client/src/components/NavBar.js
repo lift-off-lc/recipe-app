@@ -10,26 +10,26 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="bg-primary border border-primary" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="/">RECIPE APP</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Brand className="text-light" href="/">RECIPE APP</Navbar.Brand>
+        <Navbar.Toggle className="text-secondary" aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="me-auto my-2 my-lg-0"
+            className="me-auto my-2 my-lg-0 text-secondary"
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/">Home </Nav.Link>
-            <Nav.Link href="/recipe">All Recipes</Nav.Link>
-            <NavDropdown title="Manage Recipe" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/favoriterecipe">
-                My Favorites <FavoriteBorderTwoToneIcon fontSize="small" />
+            <Nav.Link className="text-secondary" href="/">Home </Nav.Link>
+            <Nav.Link className="text-secondary" href="/recipe">All Recipes</Nav.Link>
+            <NavDropdown className="color-secondary" title="Manage Recipe" id="navbarScrollingDropdown">
+              <NavDropdown.Item className="text-primary" href="/favoriterecipe">
+                My Favorites <FavoriteBorderTwoToneIcon className="text-primary" fontSize="small" />
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/addrecipe">Add Recipe</NavDropdown.Item>
+              <NavDropdown.Item className="text-primary" href="/addrecipe">Add Recipe</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/shoppinglist">Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
+            <Nav.Link className="text-secondary"href="/shoppinglist">Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -38,9 +38,9 @@ function NavBar() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-white text-secondary">Search</Button>
             <Nav>
-              <Nav.Link href="/login">LOGIN</Nav.Link>
+              <Nav.Link className="text-secondary" href="/login">LOGIN</Nav.Link>
             </Nav>
           </Form>
         </Navbar.Collapse>

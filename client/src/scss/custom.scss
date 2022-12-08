@@ -1,0 +1,23 @@
+/* Variable overrides */
+$primary : #005E7A;
+$secondary : #C0E0DE;
+$success : #69dc9e;
+$info : #90c290;
+$light : #e4f0f5;
+$dark : #13293D;
+$danger : #B8515D;
+
+
+
+$theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary,
+        "success": $success,
+        "info": $info,
+        "warning": $secondary,
+        "light": $light,
+        "dark": $dark,
+        "danger": $danger
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
