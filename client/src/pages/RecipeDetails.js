@@ -17,15 +17,18 @@ export default function RecipeDetails() {
 
   const handleDelete = () => {
     RecipeServices.delete(recipeId);
+    alert('Recipe has been deleted')
     setTimeout(() => navigate("/recipe"), 500);
   };
 
   function handleFavorite() {
-    RecipeServices.addToFavorite(recipe._id);
+    RecipeServices.addToFavorite(recipe._id)
+    alert('Recipe has been add to favorite list!');
   }
 
   function handleShoppingList() {
-    RecipeServices.addToShoppingList(recipe._id);
+    RecipeServices.addToShoppingList(recipe._id)
+    alert('Recipe has been add to shopping list!');
   }
 
   useEffect(() => {

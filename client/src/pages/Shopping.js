@@ -15,6 +15,7 @@ export default function Shopping(props) {
   //handle remove complete shopping ingredients
   const handleDeleteIngredient = () => {
     RecipeServices.completeShopping(props.recipe._id);
+    alert('Recipe is removed from shopping list!')
     //reload the page
     setTimeout(() => navigate(0), 500);
   };

@@ -31,7 +31,7 @@ function App() {
             <Route path="/addrecipe" element={<AddRecipe />} />
             <Route path="/favoriterecipe" element={<FavoriteRecipe />} />
             <Route path ="/shoppinglist" element={<ShoppingList/>}/>
-            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/signup" element={<SignUp />} />
             // * prefer to render to other path that did not listed above
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -77,4 +77,11 @@ img {
   -webkit-backface-visibility: hidden;
 }
 body{margin-top:20px;}
+.font-link {
+  font-family: "Trirong", serif;
+  font-size:"1000px";
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+
 
