@@ -1,8 +1,33 @@
-import React from "react";
+import {React, useState} from "react";
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import { Navigate } from "react-router-dom";
+import useUser from "../hooks/useUser";
+
+
+
+
+
 
 function Login() {
+  
+  const LoginUtil = () =>{
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+  }
+
+  const LogIn = async (email, password) => {
+    try{
+    Await (signInWithEmailAndPassword(getAuth(), email, password));
+    Navigate('/');
+    
+  } catch(e){ 
+    setError(e.message)
+  }
+}
   return (
     <>
+    {error && <p className="error">{error}</p>}
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
@@ -13,6 +38,8 @@ function Login() {
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
+                value={email}
+                onChange = {(e)=> setEmail(e.target.value)}
               />
             </div>
             <div className="form-group mt-3">
@@ -21,12 +48,15 @@ function Login() {
                 type="password"
                 className="form-control mt-1"
                 placeholder="Enter password"
+                value={password}
+                onChange = {(e)=> setPassword(e.target.value)}
               />
             </div>
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary">
                 Submit
-              </button>
+                onClick={LogIn}
+              </button> Log In
             </div>
             <div>
               <p className="forgot-password text-right mt-2">
