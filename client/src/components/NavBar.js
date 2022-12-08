@@ -7,6 +7,8 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import Search from "../pages/SearchResults";
+
 
 function NavBar() {
   return (
@@ -31,18 +33,13 @@ function NavBar() {
             </NavDropdown>
             <Nav.Link href="/shoppinglist">Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
+          
+          <Search />
+          
             <Nav>
               <Nav.Link href="/login">LOGIN</Nav.Link>
             </Nav>
-          </Form>
+      
         </Navbar.Collapse>
       </Container>
     </Navbar>

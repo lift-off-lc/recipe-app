@@ -14,7 +14,7 @@ function HomePageDisplay() {
           <h3>Explore authentic recipes </h3>
           <p>Create and sharing new cooking experience at your place with our home-chef community.</p>
           <Link to="/recipe">
-            <Button variant="success" onClick="/recipe">
+            <Button variant="success">
               Learn More
             </Button>
             {""}
