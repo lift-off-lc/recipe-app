@@ -2,7 +2,7 @@ import "./App.css";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
 import RecipeList from "./pages/RecipeList";
-import React from "react";
+import { useState } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -16,8 +16,12 @@ import Footer from "./components/Footer";
 import AddRecipe from "./pages/AddRecipe";
 import FavoriteRecipe from "./pages/FavoriteRecipe";
 import ShoppingList from "./pages/ShoppingList";
+import Search from "./pages/SearchResults";
+
 
 function App() {
+
+  const [query, setQuery] = useState('')
   return (
     <BrowserRouter>
       <div className="App">
@@ -25,12 +29,15 @@ function App() {
         <div className="page.body">
           <Routes>
             <Route path="/" element={<HomePage />} />
+        
             <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
             <Route path="/recipe" element={<RecipeList />} />
+            
             <Route path="/login" element={<Login />} />
             <Route path="/addrecipe" element={<AddRecipe />} />
             <Route path="/favoriterecipe" element={<FavoriteRecipe />} />
-            <Route path ="/shoppinglist" element={<ShoppingList/>}/>
+            <Route path="/shoppinglist" element={<ShoppingList />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/signUp" element={<SignUp />} />
             {// * prefer to render to other path that did not listed above
             }

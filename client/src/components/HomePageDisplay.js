@@ -51,7 +51,7 @@ function HomePageDisplay() {
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
           <Link to="/recipe">
-            <Button variant="success" onClick="/recipe">
+            <Button variant="success">
               Learn More
             </Button>
             {""}

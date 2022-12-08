@@ -6,6 +6,9 @@ import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
 import Recipe from "./Recipe";
 export default function RecipeList() {
   const [recipes, setRecipes] = useState(null);
+  
+
+
 
   useEffect(() => {
     fetch("http://localhost:8000/recipe")
@@ -22,9 +25,11 @@ export default function RecipeList() {
           </h1>
         </Col>
       </Row>
-
+    
       <Row>
-        {recipes && recipes.map((recipe) => <Recipe key={recipe.name} recipe={recipe} />)}
+      
+         {recipes && recipes.map((recipe) => <Recipe key={recipe.name} recipe={recipe} />)}
+
       </Row>
     </Container>
   );

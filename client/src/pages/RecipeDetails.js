@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import Rating from "@mui/material/Rating";
 import { SocialIcon } from "react-social-icons";
 import Button from "react-bootstrap/Button";
@@ -14,6 +14,8 @@ export default function RecipeDetails() {
   const navigate = useNavigate();
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const RecipeDetailsContext = createContext(recipeId);
+ 
 
   //handle delete recipe
   const handleDelete = () => {
@@ -28,7 +30,7 @@ export default function RecipeDetails() {
     fetch(`http://localhost:8000/recipe/${recipeId}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data));
-  }, [recipe]);
+  }, [recipe, recipeId]);
 
   return (
     <>

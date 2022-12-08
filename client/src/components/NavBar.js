@@ -32,7 +32,7 @@ function NavBar() {
             </NavDropdown>
             <Nav.Link href="/shoppinglist">Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
           </Nav>
-          < Search />
+          <Search />
           <Nav>
           <Nav.Link href="/login">LOGIN</Nav.Link>
         </Nav>
