@@ -116,10 +116,11 @@ export default function Footer() {
 
           <section className="mb-4">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-              distinctio earum repellat quaerat voluptatibus placeat nam,
-              commodi optio pariatur est quia magnam eum harum corrupti dicta,
-              aliquam sequi voluptate quas.
+              Everyone is welcome at the Recipe App: people of all races,
+              religions, genders, sexual orientations, ages, backgrounds, and
+              abilities. We strive to be a resource for every home cook, and we
+              consciously work to make this inclusion felt in every part of the
+              site.
             </p>
           </section>
           <section className="">
@@ -127,13 +128,14 @@ export default function Footer() {
               <MDBRow className="mt-3">
                 <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
                   <h6 className="text-uppercase fw-bold mb-4">
-                    <MDBIcon icon="gem" className="me-3" />
+                    <MDBIcon icon="gem" className="font-link" />
                     Lift Off Launch Code Project
                   </h6>
                   <p>
-                    Here you can use rows and columns to organize your footer
-                    content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit.
+                    Recipe App is here to help you cook delicious meals with
+                    less stress and more joy. Create your own favorite recipes
+                    list and shopping for ingredients at ease. We offers recipes
+                    and new feature to make your cooking experiences better.
                   </p>
                 </MDBCol>
 
@@ -141,7 +143,7 @@ export default function Footer() {
                   <h6 className="text-uppercase fw-bold mb-4">Products</h6>
                   <p>
                     <a href="#!" className="text-reset">
-                      Angular
+                      Express JS
                     </a>
                   </p>
                   <p>
@@ -151,12 +153,7 @@ export default function Footer() {
                   </p>
                   <p>
                     <a href="#!" className="text-reset">
-                      Vue
-                    </a>
-                  </p>
-                  <p>
-                    <a href="#!" className="text-reset">
-                      Laravel
+                      Mongo DB
                     </a>
                   </p>
                 </MDBCol>

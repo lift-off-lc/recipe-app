@@ -24,6 +24,18 @@ app.get("/recipe", (req, res) => {
 });
 
 //add recipe
+app.post("/addrecipe", (req, res) => {
+  let newRecipe = {
+    name: req.body.name,
+    ingredients: req.body.ingredients,
+    method: req.body.method,
+    image: req.body.image,
+    category: req.body.category,
+  };
+  console.log(newRecipe)
+  db.collection("recipes").insertOne(newRecipe);
+  res.json({ res: "Success" });
+});
 
 //delete recipe
 app.delete("/recipe/:id", async (req, res) => {
@@ -86,7 +98,7 @@ app.post("/shoppinglist", (req, res) => {
   res.json({ res: "Added to shopping list" });
 });
 
-//remove shopped ingrediernts 
+//remove shopped ingrediernts
 app.delete("/shoppinglist", (req, res) => {
   const data = req.body;
   db.collection("shoppinglist").deleteOne({ recipeId: data._id });
