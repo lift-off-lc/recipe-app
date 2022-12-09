@@ -1,27 +1,22 @@
 import {React, useState} from "react";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import { Navigate } from "react-router-dom";
-import useUser from "../hooks/useUser";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
-
-
-
-function Login() {
+const Login = () => {
   
-  const LoginUtil = () =>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-  }
 
-  const LogIn = async (email, password) => {
+    const navigate = useNavigate();
+  
+    const LogIn = async (email, password) => {
     try{
-    Await (signInWithEmailAndPassword(getAuth(), email, password));
-    Navigate('/');
-    
-  } catch(e){ 
+      await (signInWithEmailAndPassword(getAuth(), email, password));
+      navigate("/");
+    } catch(e){ 
     setError(e.message)
   }
 }
@@ -39,7 +34,7 @@ function Login() {
                 className="form-control mt-1"
                 placeholder="Enter email"
                 value={email}
-                onChange = {(e)=> setEmail(e.target.value)}
+                onChange = {e=> setEmail(e.target.value)}
               />
             </div>
             <div className="form-group mt-3">
@@ -49,21 +44,20 @@ function Login() {
                 className="form-control mt-1"
                 placeholder="Enter password"
                 value={password}
-                onChange = {(e)=> setPassword(e.target.value)}
+                onChange = {e=> setPassword(e.target.value)}
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
-                Submit
-                onClick={LogIn}
-              </button> Log In
+              <button type="submit" className="btn btn-primary" onClick={LogIn}>
+                Log In
+              </button>
             </div>
             <div>
               <p className="forgot-password text-right mt-2">
                 Forgot <a href="#">password?</a>
               </p>
               <p className="sign-up text-right mt-2">
-                Don't have an account? <a href="./SignUp">Sign Up</a>
+                Don't have an account? <Link to="../signUp">Sign Up</Link>
               </p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -7,8 +7,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-
+import useUser from "../hooks/useUser";
 function NavBar() {
+  
+   const { user, isLoading} = useUser();
+  
+  
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -22,13 +26,29 @@ function NavBar() {
           >
             <Nav.Link href="/">Home </Nav.Link>
             <Nav.Link href="/recipe">All Recipes</Nav.Link>
+            {user ? 
             <NavDropdown title="Manage Recipe" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/favoriterecipe">
-                My Favorites <FavoriteBorderTwoToneIcon fontSize="small" />
+              
+                <NavDropdown.Item href="/favoriterecipe">
+                  My Favorites <FavoriteBorderTwoToneIcon fontSize="small" />
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/addrecipe">
+                Add Recipe <FavoriteBorderTwoToneIcon fontSize="small" />
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/addrecipe">Add Recipe</NavDropdown.Item>
+              </NavDropdown>
+              : 
+              <NavDropdown title="Manage Recipe" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/login">
+              My Favorites <FavoriteBorderTwoToneIcon fontSize="small" />
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/login">
+            Add Recipe <FavoriteBorderTwoToneIcon fontSize="small" />
+            </NavDropdown.Item>
             </NavDropdown>
+
+              }
+              
+            
             <Nav.Link href="/shoppinglist">Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
           </Nav>
           <Form className="d-flex">
@@ -39,9 +59,20 @@ function NavBar() {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
-            <Nav>
-              <Nav.Link href="/login">LOGIN</Nav.Link>
-            </Nav>
+            { user ?
+            //TODO: create log out function
+            //   <Nav>
+            //   <Nav.Link href="/logout">Log Out</Nav.Link>
+            // </Nav>
+              <Nav>
+                <Nav.Link href="/login">LOG OUT</Nav.Link>
+              </Nav>
+              :
+              <Nav>
+                <Nav.Link href="/login">SIGN IN</Nav.Link>
+              </Nav>
+            }
+
           </Form>
         </Navbar.Collapse>
       </Container>

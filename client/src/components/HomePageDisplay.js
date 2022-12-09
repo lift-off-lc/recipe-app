@@ -1,7 +1,9 @@
-import Carousel from "react-bootstrap/Carousel";
-import Button from "react-bootstrap/Button";
+import { Carousel, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 function HomePageDisplay() {
+  
+
   return (
     <Carousel fade>
       <Carousel.Item>
