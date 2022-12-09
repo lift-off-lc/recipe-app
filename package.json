@@ -1,8 +1,12 @@
 {
   "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.10.16",
     "bootstrap": "^5.2.2",
+    "firebase": "^9.15.0",
+    "material-components-web": "^14.0.0",
     "mdb-react-ui-kit": "^5.0.0",
-    "react-bootstrap": "^2.6.0",
+    "react-bootstrap": "^2.7.0",
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1"
