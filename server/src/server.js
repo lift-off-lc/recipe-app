@@ -2,12 +2,34 @@ import express from "express";
 import { db, connectToDb } from "./db.js";
 import { ObjectId } from "mongodb";
 import cors from "cors";
+import fs from 'fs';
+import admin from 'firebase-admin';
+
+const credentials = JSON.parse(
+  fs.readFileSync("../credentials.json")
+);
+
+admin.initializeApp({
+  credential: admin.credential.cert(credentials)
+})
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+app.use(async (req, res, next) => {
+  const { authToken } = req.headers;
+  
+  if(authToken) {
+    try{
+    req.user = await admin.auth().verifyIdToken(authToken);
+  } catch (e){
+    res.sendStatus(400);
+  }
+  }
+  next();
+});
 //display recipe details
 app.get("/recipe/:id", async (req, res) => {
   const { id } = req.params;
