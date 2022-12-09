@@ -98,6 +98,29 @@ app.post("/shoppinglist", (req, res) => {
   res.json({ res: "Added to shopping list" });
 });
 
+//search all recipes
+app.get("/search", (req, res) => {
+  db.collection("recipes")
+    .find({
+      $or: [
+        {
+          name: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
+        },
+        {
+          ingredients: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
+        },
+        {
+          category: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
+        }
+      ]
+    })
+    .toArray()
+    .then((documents) => {
+      console.log(documents);
+      res.send(documents)
+    });
+});
+
 //remove shopped ingrediernts
 app.delete("/shoppinglist", (req, res) => {
   const data = req.body;

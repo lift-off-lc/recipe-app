@@ -14,7 +14,7 @@ function HomePageDisplay() {
           <h3>Explore authentic recipes </h3>
           <p>Create and sharing new cooking experience at your place with our home-chef community.</p>
           <Link to="/recipe">
-            <Button variant="success" onClick="/recipe">
+            <Button variant="success">
               Learn More
             </Button>
             {""}
@@ -32,7 +32,7 @@ function HomePageDisplay() {
           <h3>Inspired nouvelle cuisine</h3>
           <p> Learn to use premium fresh ingredients and presented artistically on the plate.</p>{" "}
           <Link to="/recipe">
-            <Button variant="success" onClick="/recipe">
+            <Button variant="success">
               Learn More
             </Button>
             {""}
@@ -52,10 +52,10 @@ function HomePageDisplay() {
             Join our community and cooking at ease with our newly shopping list feature. 
           </p>
           <Link to="/recipe">
-            <Button variant="success" onClick="/signUp">
+            <Button variant="success">
               Sign Up
             </Button>
-            {""}
+         
           </Link>
         </Carousel.Caption>
       </Carousel.Item>
