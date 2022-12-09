@@ -12,6 +12,7 @@ import Search from "../pages/SearchResults";
 
 function NavBar() {
   return (
+    <>
     <Navbar bg="light" expand="lg">
       <Container fluid>
         <Navbar.Brand href="/">RECIPE APP</Navbar.Brand>
@@ -34,8 +35,6 @@ function NavBar() {
             <Nav.Link href="/shoppinglist">Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
           </Nav>
           
-          <Search />
-          
             <Nav>
               <Nav.Link href="/login">LOGIN</Nav.Link>
             </Nav>
@@ -43,6 +42,8 @@ function NavBar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+      <Search />
+      </>
   );
 }
 
