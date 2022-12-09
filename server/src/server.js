@@ -16,22 +16,34 @@ admin.initializeApp({
 const app = express();
 
 app.use(cors());
+
+//auto-loads user **info** whenever FE sends/requsets any related info
 app.use(express.json());
 
+//loads user **credentials** when needed
 app.use(async (req, res, next) => {
+  // gets auth token from firebase, which will be located in the headers
   const { authToken } = req.headers;
   
   if(authToken) {
     try{
-    req.user = await admin.auth().verifyIdToken(authToken);
+      //  specifies the individual user
+    const user = await admin.auth().verifyIdToken(authToken);
+      req.user = user;
   } catch (e){
+    //sends error if no such user and/or token, or if no auth token received
     res.sendStatus(400);
   }
   }
   next();
 });
+
+
 //display recipe details
 app.get("/recipe/:id", async (req, res) => {
+  //checks user id
+  const {uid} = req.user;
+ 
   const { id } = req.params;
   const recipe = await db.collection("recipes").findOne({ _id: ObjectId(id) });
   recipe ? res.json(recipe) : res.status(404);
@@ -45,7 +57,7 @@ app.get("/recipe", (req, res) => {
     .then((documents) => res.send(documents));
 });
 
-//add recipe
+//TODO: add recipe
 
 //delete recipe
 app.delete("/recipe/:id", async (req, res) => {

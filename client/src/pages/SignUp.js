@@ -31,12 +31,12 @@ function SignUp() {
 
 
 
-  const signUp = () => {
-    setFirstName(firstName);
-    setLastName(lastName);
-    setEmail(email);
-    setPassword(password);
-  }
+  // const signUp = () => {
+  //   setFirstName(firstName);
+  //   setLastName(lastName);
+  //   setEmail(email);
+  //   setPassword(password);
+  // }
   
   return (
     <>
