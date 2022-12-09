@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Shopping from "./Shopping";
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-
+import useUser from "../hooks/useUser";
 
 export default function ShoppingList() {
   const [recipes, setRecipes] = useState(null);

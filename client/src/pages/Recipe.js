@@ -7,6 +7,9 @@ import Rating from "@mui/material/Rating";
 import RecipeServices from "../components/RecipeServices";
 import { useNavigate } from "react-router-dom";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import useUser from "../hooks/useUser";
+
+
 export default function Recipe(props) {
   const navigate = useNavigate();
 
@@ -14,6 +17,9 @@ export default function Recipe(props) {
     RecipeServices.deleteFavorite(props.recipe._id);
     setTimeout(() => navigate(0), 500);
   };
+
+  
+
   return (
     <Col className="p-3">
       <Card border="dark" style={{ width: "20rem" }}>
