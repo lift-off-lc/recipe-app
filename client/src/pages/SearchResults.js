@@ -33,7 +33,7 @@ export default function Search() {
     
         let navigate = useNavigate(); 
         const routeChange = () =>{ 
-          let path = `http://localhost:3000/search?searchTerm=${searchTerm}`; 
+          let path = `/search?searchTerm=${searchTerm}`; 
             navigate(path);
             
         }
