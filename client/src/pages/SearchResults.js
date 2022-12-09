@@ -5,67 +5,70 @@ import Recipe from "./Recipe";
 import Row from "react-bootstrap/esm/Row";
 import { useNavigate } from "react-router-dom";
 import { Container } from "@mui/material";
-import Col from "react-bootstrap/esm/Col";
-
-
-
-
-
 
 export default function Search() {
-    const [searchResults, setSearchResults] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
-  
-   
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-    
-        function fetchData() {
-            fetch(`http://localhost:8000/search?searchTerm=${searchTerm}`)
-                .then((response) => {
-                    console.log(response);
-                    return response.json();
-                })
-                .then((data) => {
-                    setSearchResults(data);
-                    console.log(data);
-                });
-        }
-    
-        let navigate = useNavigate(); 
-        const routeChange = () =>{ 
-          let path = `/search?searchTerm=${searchTerm}`; 
-            navigate(path);
-            
-        }
+  function fetchData() {
+    fetch(`http://localhost:8000/search?searchTerm=${searchTerm}`)
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        setSearchResults(data);
+        console.log(data);
+      });
+  }
 
-    return (
-   
-        <>
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = `http://localhost:3000/search?searchTerm=${searchTerm}`;
+    navigate(path);
+  };
+
+  return (
+    <>
+      <Form
+        className="d-flex"
+        style={{
+          width: "20rem",
+          marginLeft: "60rem",
+          paddingTop: "0.5rem",
+          paddingBottom: "0.5rem",
+        }}
+      >
         <Form.Control
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-                value={searchTerm}
-                onChange={(e) => {setSearchTerm(e.target.value)}}   
-            />
-            
-            <Button onClick={() => {
-                 routeChange() ;
-                 fetchData() ;
-            }}>
-                    Search
-            </Button>
-         
-       
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+        />
+        <Button
+          variant="outline-success"
+          style={{ marginRight: "0.5rem" }}
+          onClick={() => {
+            routeChange();
+            fetchData();
+          }}
+        >
+          Search
+        </Button>
+      </Form>
 
-         <Col>
-         
-            {searchResults && searchResults.map((recipe) => <Recipe key={recipe.name} recipe={recipe} />)}
-    
-            </Col>
-        </>
-    ) 
-    
+      <Container>
+        <Row>
+          {searchResults &&
+            searchResults.map((recipe) => (
+              <Recipe key={recipe.name} recipe={recipe} />
+            ))}
+        </Row>
+      </Container>
+    </>
+  );
 }
-

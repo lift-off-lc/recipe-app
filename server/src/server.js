@@ -32,7 +32,7 @@ app.post("/addrecipe", (req, res) => {
     image: req.body.image,
     category: req.body.category,
   };
-  console.log(newRecipe)
+  console.log(newRecipe);
   db.collection("recipes").insertOne(newRecipe);
   res.json({ res: "Success" });
 });
@@ -104,20 +104,20 @@ app.get("/search", (req, res) => {
     .find({
       $or: [
         {
-          name: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
+          name: { $regex: `.*${req.query.searchTerm}`, $options: "i" },
         },
         {
-          ingredients: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
+          ingredients: { $regex: `.*${req.query.searchTerm}`, $options: "i" },
         },
         {
-          category: { $regex: `.*${req.query.searchTerm}`, $options: "i" }
-        }
-      ]
+          category: { $regex: `.*${req.query.searchTerm}`, $options: "i" },
+        },
+      ],
     })
     .toArray()
     .then((documents) => {
       console.log(documents);
-      res.send(documents)
+      res.send(documents);
     });
 });
 
