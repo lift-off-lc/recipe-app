@@ -3,20 +3,21 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 function HomePageDisplay() {
   return (
-    <Carousel fade>
+    <Carousel fade style={{ paddingTop: "0.5rem" }}>
       <Carousel.Item>
         <img
           className="d-block w-100"
           alt="First slide"
           src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzV8fGZvb2R8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60"
         />
-        <Carousel.Caption className="font-link" >
+        <Carousel.Caption className="font-link">
           <h3>Explore authentic recipes </h3>
-          <p>Create and sharing new cooking experience at your place with our home-chef community.</p>
+          <p>
+            Create and sharing new cooking experience at your place with our
+            home-chef community.
+          </p>
           <Link to="/recipe">
-            <Button variant="success">
-              Learn More
-            </Button>
+            <Button variant="success">Learn More</Button>
             {""}
           </Link>
         </Carousel.Caption>
@@ -30,11 +31,13 @@ function HomePageDisplay() {
 
         <Carousel.Caption className="font-link">
           <h3>Inspired nouvelle cuisine</h3>
-          <p> Learn to use premium fresh ingredients and presented artistically on the plate.</p>{" "}
+          <p>
+            {" "}
+            Learn to use premium fresh ingredients and presented artistically on
+            the plate.
+          </p>{" "}
           <Link to="/recipe">
-            <Button variant="success">
-              Learn More
-            </Button>
+            <Button variant="success">Learn More</Button>
             {""}
           </Link>
         </Carousel.Caption>
@@ -49,13 +52,12 @@ function HomePageDisplay() {
         <Carousel.Caption className="font-link">
           <h3>Enjoy the art of cooking</h3>
           <p>
-            Join our community and cooking at ease with our newly shopping list feature. 
+            Join our community and cooking at ease with our newly shopping list
+            feature.
           </p>
-          <Link to="/recipe">
-            <Button variant="success">
-              Sign Up
-            </Button>
-         
+          <Link to="/signUp">
+            <Button variant="success">Sign Up</Button>
+            {""}
           </Link>
         </Carousel.Caption>
       </Carousel.Item>

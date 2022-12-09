@@ -17,18 +17,18 @@ export default function RecipeDetails() {
 
   const handleDelete = () => {
     RecipeServices.delete(recipeId);
-    alert('Recipe has been deleted')
+    alert("Recipe has been deleted");
     setTimeout(() => navigate("/recipe"), 500);
   };
 
   function handleFavorite() {
-    RecipeServices.addToFavorite(recipe._id)
-    alert('Recipe has been add to favorite list!');
+    RecipeServices.addToFavorite(recipe._id);
+    alert("Recipe has been add to favorite list!");
   }
 
   function handleShoppingList() {
-    RecipeServices.addToShoppingList(recipe._id)
-    alert('Recipe has been add to shopping list!');
+    RecipeServices.addToShoppingList(recipe._id);
+    alert("Recipe has been add to shopping list!");
   }
 
   useEffect(() => {
@@ -45,20 +45,19 @@ export default function RecipeDetails() {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
             integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
-          <div class="container">
-            <div class="row">
-              <div class="col-md-5">
-                <div class="project-info-box">
-                  <p>
-                    <h3>
-                      <Badge pill bg="dark">
-                        {recipe.name}{" "}
-                      </Badge>
-                    </h3>
-                    <Rating name="read-only" value="5" readOnly />
-                  </p>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-5">
+                <div className="project-info-box">
+                  <h3>
+                    <Badge pill bg="dark">
+                      {recipe.name}{" "}
+                    </Badge>
+                  </h3>
+                  <Rating name="read-only" value={5} readOnly />
+
                   <p>
                     <Button
                       variant="outline-danger"
@@ -92,9 +91,9 @@ export default function RecipeDetails() {
                   <p></p>
                 </div>
 
-                <div class="project-info-box mt-0 mb-0">
-                  <p class="mb-0">
-                    <span class="fw-bold mr-10 va-middle hide-mobile">
+                <div className="project-info-box mt-0 mb-0">
+                  <div className="mb-0">
+                    <span className="fw-bold mr-10 va-middle hide-mobile">
                       Share
                     </span>
 
@@ -138,13 +137,17 @@ export default function RecipeDetails() {
                         />
                       </Button>
                     </ButtonGroup>
-                  </p>
+                  </div>
                 </div>
               </div>
 
-              <div class="col-md-7">
-                <img src={recipe.image} alt="project-image" class="rounded" />
-                <div class="project-info-box">
+              <div className="col-md-7">
+                <img
+                  src={recipe.image}
+                  alt="project-image"
+                  className="rounded"
+                />
+                <div className="project-info-box">
                   <p>
                     {" "}
                     <Button

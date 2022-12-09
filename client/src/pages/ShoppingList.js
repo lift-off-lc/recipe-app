@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Shopping from "./Shopping";
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 export default function ShoppingList() {
   const [recipes, setRecipes] = useState(null);
@@ -12,8 +11,11 @@ export default function ShoppingList() {
   }, []);
   return (
     <>
-    <h1>My Shopping List <ShoppingBagIcon style={{color:"green"}} fontSize="large"/></h1>
-    {recipes && recipes.map((recipe) => <Shopping recipe={recipe}/>)}
+      <h1>
+        My Shopping List{" "}
+        <ShoppingBagIcon style={{ color: "green" }} fontSize="large" />{" "}
+      </h1>
+      {recipes && recipes.map((recipe) => <Shopping recipe={recipe} />)}
     </>
-  )
+  );
 }
