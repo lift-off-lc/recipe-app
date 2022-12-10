@@ -1,5 +1,4 @@
 import "./App.css";
-import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
 import RecipeList from "./pages/RecipeList";
 import React from "react";
@@ -16,6 +15,7 @@ import Footer from "./components/Footer";
 import AddRecipe from "./pages/AddRecipe";
 import FavoriteRecipe from "./pages/FavoriteRecipe";
 import ShoppingList from "./pages/ShoppingList";
+import GroceryLocation from "./pages/GroceryLocation";
 
 function App() {
   return (
@@ -30,10 +30,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/addrecipe" element={<AddRecipe />} />
             <Route path="/favoriterecipe" element={<FavoriteRecipe />} />
-            <Route path ="/shoppinglist" element={<ShoppingList/>}/>
-            <Route path="/signup" element={<SignUp />} />
-            // * prefer to render to other path that did not listed above
-            <Route path="*" element={<NotFound />} />
+            <Route path="/shoppinglist" element={<ShoppingList />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/grocery" element={<GroceryLocation />} />
           </Routes>
         </div>
         <Footer />
