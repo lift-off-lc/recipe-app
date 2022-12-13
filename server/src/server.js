@@ -6,7 +6,7 @@ import fs from 'fs';
 import admin from 'firebase-admin';
 
 const credentials = JSON.parse(
-  fs.readFileSync("../credentials.json")
+  fs.readFileSync('./credentials.json')
 );
 
 admin.initializeApp({
@@ -42,7 +42,7 @@ app.use(async (req, res, next) => {
 //display recipe details
 app.get("/recipe/:id", async (req, res) => {
   //checks user id
-  const {uid} = req.user;
+  //const {uid} = req.user;
  
   const { id } = req.params;
   const recipe = await db.collection("recipes").findOne({ _id: ObjectId(id) });

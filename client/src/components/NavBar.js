@@ -11,12 +11,7 @@ import useUser from "../hooks/useUser";
 function NavBar() {
   
    const { user, isLoading} = useUser();
-   const [linkToFavorite, setLinkToFavorite] = useState("/login")
-   const [linkToShop, setLinkToShop] = useState("/login");
-  if(user) {
-      setLinkToFavorite("/favoriterecipe");
-      setLinkToShop("/shoppinglist")
-  }
+   
   
   return (
   
@@ -36,14 +31,14 @@ function NavBar() {
             <Nav.Link href="/recipe">All Recipes</Nav.Link>
             
             <NavDropdown title="Manage Recipe" id="navbarScrollingDropdown">
-                <NavDropdown.Item  href={linkToFavorite}>
+                <NavDropdown.Item  href={user ? "/favoriterecipes" : "/login"}>
                   My Favorites <FavoriteBorderTwoToneIcon fontSize="small" />
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/addrecipe">
                 Add Recipe <FavoriteBorderTwoToneIcon fontSize="small" />
               </NavDropdown.Item>
             </NavDropdown>
-          <Nav.Link href={linkToShop}>Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
+          <Nav.Link href={user ? "/shoppinglist" : "/login"}>Shopping List <ShoppingCartOutlinedIcon fontSize="small"/></Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -53,19 +48,11 @@ function NavBar() {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
-            { user ?
-//TODO: create log out function
-            //   <Nav>
-            //   <Nav.Link href="/logout">Log Out</Nav.Link>
-            // </Nav>
-              <Nav>
-                <Nav.Link href="/login">LOG OUT</Nav.Link>
-              </Nav>
-              :
+{/* //TODO: create log out function */}
               <Nav>
                 <Nav.Link href="/login">SIGN IN</Nav.Link>
               </Nav>
-            }
+
 
           </Form>
         </Navbar.Collapse>

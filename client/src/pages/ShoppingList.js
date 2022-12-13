@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Shopping from "./Shopping";
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import { getIdToken } from "firebase/auth";
+import useUser from "../hooks/useUser";
+import axios from "axios";
 
 export default function ShoppingList() {
  
-   
-//  const { uid } = req.user;
+   const { user, isLoading } = useUser();
   const [recipes, setRecipes] = useState(null);
-  useEffect(() => {
+  useEffect(async () => {
 //TODO: shopping list should be specific to the individual user
-    fetch(`http://localhost:8000/shoppinglist/`)
-      .then((res) => res.json())
-      .then((data) => setRecipes(data));
-  }, [])
+    const token = (user && await user.getIdToken());
+    const headers = token ? { authtoken: token } : {};
+
+    const response = await axios.get(`http://localhost:8000/shoppinglist/:${user.name}`, { headers })
+    .then((res) => res.json())
+        .then((data) => setRecipes(data));
+    }, []);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import {React, useState} from "react";
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import {connectAuthEmulator, getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-
+import { getApp } from "firebase/app";
 
 
 const Login = () => {
@@ -11,9 +11,11 @@ const Login = () => {
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
-  
+    
     const LogIn = async (email, password) => {
-    try{
+      connectAuthEmulator(getApp(), "127.0.0.1:9099");
+      console.log("connected to emulator!!!!");
+      try{
       await (signInWithEmailAndPassword(getAuth(), email, password));
       navigate("/");
     } catch(e){ 
@@ -48,13 +50,13 @@ const Login = () => {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary" onClick={LogIn}>
+              <button type="submit" className="btn btn-primary" onClick={LogIn(email, password)}>
                 Log In
               </button>
             </div>
             <div>
               <p className="forgot-password text-right mt-2">
-                Forgot <a href="#">password?</a>
+                Forgot <a href="/">password?</a>
               </p>
               <p className="sign-up text-right mt-2">
                 Don't have an account? <Link to="../signUp">Sign Up</Link>

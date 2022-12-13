@@ -1,9 +1,11 @@
 import {React, useState} from "react";
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+import {getAuth, createUserWithEmailAndPassword, updateProfile, connectAuthEmulator} from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import HomePage from "./HomePage";
+import { getApp } from "firebase/app";
 
 function SignUp() {
+  const app = getApp();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -11,20 +13,23 @@ function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   
-  
   const navigate = useNavigate();
+  const auth=getAuth();
+  
 
-  const createAccount = async () => {
+  const createAccount = async (email, password, confirmPassword) => {
+     connectAuthEmulator(getApp(), "127.0.0.1:9099");
     try{
       if(password !== confirmPassword){
         setError("'Password' and 'Confirm Password' do not match");
         return;
       }
-
-      await createUserWithEmailAndPassword(getAuth(), email, password);
-      navigate(<HomePage/>);
-    } catch (e) {
+      await auth.createUserWithEmailAndPassword(getAuth(), email, password);
+      navigate("/");
+      console.log("SUCCESSFUL ACCOUNT CREATION");
+    } catch(e) {
       setError(e.message);
+      console.log(e.message);
     }
   }
   
