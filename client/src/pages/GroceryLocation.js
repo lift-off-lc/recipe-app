@@ -1,7 +1,8 @@
 import React from 'react'
+import GroceryLocation from '../components/Grocery'
 
-export default function GroceryLocation() {
+export default function GroceryMap() {
   return (
-    <div>GroceryLocation</div>
+    <GroceryLocation/>
   )
 }
