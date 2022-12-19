@@ -5,12 +5,19 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Search from "../pages/SearchResults";
-import React from "react";
+import React, {useState} from "react";
 import PlaceIcon from "@mui/icons-material/Place";
 import Button from "@mui/material-next/Button";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { useAuth } from "./Firebase/context/AuthContext";
+import LogOut from "../pages/LogOut";
+
 
 function NavBar() {
+  const { currentUser, signOutUser } = useAuth();
+  const [modal, setModal] = useState(false);
+
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -44,6 +51,8 @@ function NavBar() {
                 {" "}
                 Grocery Location <PlaceIcon />{" "}
               </Nav.Link>
+              {!currentUser ? 
+              <>
               <Button
                 color="secondary"
                 size="small"
@@ -51,9 +60,25 @@ function NavBar() {
                 href="/login"
                 className="me-auto my-2 my-lg-0"
               >
-                <AccountCircleIcon font-size="large" />
+                <AccountCircleIcon fontSize="large" />
               </Button>
+              </>
+              : 
+              <>
+              <Button
+              color="secondary"
+              size="small"
+              variant="outlined"
+              href="/logout"
+              className="me-auto my-2 my-lg-0"
+              onClick={() => setModal(true)}
+            >
+              <LogoutOutlinedIcon fontSize="large" />
+            </Button>
+            </>
+              }
             </Nav>
+            {modal && <LogOut modal={modal} setModal={setModal} />}
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -1,50 +1,66 @@
-import React from "react";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../components/Firebase/context/AuthContext";
 
 const Login= () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const LogIn = async() => {
-    try {
-      await signInWithEmailAndPassword(getAuth(), email, password);      
-    } catch (e) {
-      setError(e.message);
+  const { currentUser, logInUser, error, setError } = useAuth();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/");
     }
-    console.log("!!!!!! LOGGED IN !!!!!")
-    useNavigate("/recipe");
+  }, [currentUser, navigate]);
+  //PREVENTS A USER FROM REACHING THE LOGIN PAGE IF THEY ARE CURRENTLY LOGGED IN, REDIRECTS TO HOMEPAGE INSTEAD
+
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      await logInUser(email, password);
+      navigate("/profile");
+    } catch (e) {
+      setError("Oops! An error occurred");
+      
+    }
+    setLoading(false);
   }
+  //WHY setLoading(true) ONLY TO THEN setLoading(false)?
+    //TO PREVENT THE PROGRAM FROM TAKING INCONVENIENT ACTIONS WHILE WAITING FOR THE PROMISED USERCREDENTIAL TO BE RETURNED BY logInUser(email, password)
+
+  
   return (
     <>
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <form className="Auth-form" onSubmit={handleFormSubmit}>
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
-            {error && <p className="error">{error}</p>}
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
+                id="email"
                 value={email}
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
-                onChange = {e => setEmail(e.target.value)}
+                onChange ={(e) => setEmail(e.target.value)}
+                required
               />
-            </div>
-            <div className="form-group mt-3">
               <label>Password</label>
               <input
+                id="password"
                 value={password}
-                onChange={e=> setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 className="form-control mt-1"
                 placeholder="Enter password"
               />
-            </div>
-            <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary" onClick={LogIn}>
+
+              <button type="submit" value="submit" className="btn btn-primary" disabled={loading}>
                 Log In
               </button>
             </div>
@@ -53,7 +69,7 @@ const Login= () => {
                 Forgot <a href="#">password?</a>
               </p>
               <p className="sign-up text-right mt-2">
-                Don't have an account? <Link to="./SignUp">Sign Up</Link>
+                Don't have an account? <Link to="/SignUp">Sign Up</Link>
               </p>
             </div>
           </div>

@@ -17,7 +17,7 @@ code {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 75vh;
 }
 
 .Auth-form {
@@ -93,9 +93,21 @@ code {
   text-align: left;
 }
 
-label {
+.label {
   font-size: 14px;
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+
+.auth-alert-box {
+  width: 400px;
+  height: auto;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+  background-color: lightcoral;
+  text-align: center;
+}
+
 

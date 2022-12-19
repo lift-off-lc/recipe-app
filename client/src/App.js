@@ -1,4 +1,5 @@
 import "./App.css";
+import { AuthProvider } from "./components/Firebase/context/AuthContext";
 import HomePage from "./pages/HomePage";
 import RecipeList from "./pages/RecipeList";
 import React from "react";
@@ -16,13 +17,20 @@ import AddRecipe from "./pages/AddRecipe";
 import FavoriteRecipe from "./pages/FavoriteRecipe";
 import ShoppingList from "./pages/ShoppingList";
 import GroceryLocation from "./pages/GroceryLocation";
+import ErrorMessage from "./components/Firebase/layouts/ErrorMessage";
+import Profile from "./pages/Profile";
+import WithPrivateRoute from "./components/Firebase/utils/WithPrivateRoute";
 
 function App() {
   return (
+    <AuthProvider>
     <BrowserRouter>
+    
       <div className="App">
         <NavBar />
+        
         <div className="page.body">
+        <ErrorMessage/>    
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
@@ -33,11 +41,20 @@ function App() {
             <Route path="/shoppinglist" element={<ShoppingList />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/grocery" element={<GroceryLocation />} />
+            <Route 
+              exact 
+              path="/profile" 
+              element={
+                <WithPrivateRoute>
+                  <Profile />
+                </WithPrivateRoute>
+              } />
           </Routes>
         </div>
         <Footer />
       </div>
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 
