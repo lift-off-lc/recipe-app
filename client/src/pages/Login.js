@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../components/Firebase/context/AuthContext";
-
 const Login= () => {
   const { currentUser, logInUser, error, setError } = useAuth();
   const navigate = useNavigate();
@@ -13,18 +12,20 @@ const Login= () => {
     if (currentUser) {
       navigate("/");
     }
+    
   }, [currentUser, navigate]);
   //PREVENTS A USER FROM REACHING THE LOGIN PAGE IF THEY ARE CURRENTLY LOGGED IN, REDIRECTS TO HOMEPAGE INSTEAD
 
-  async function handleFormSubmit(e) {
-    e.preventDefault();
+  async function handleFormSubmit(event) {
+    event.preventDefault();
 
     try {
       setLoading(true);
       await logInUser(email, password);
       navigate("/profile");
-    } catch (e) {
-      setError("Oops! An error occurred");
+    } catch (error) {
+      setError({error: error.message});
+      
       
     }
     setLoading(false);
@@ -47,14 +48,14 @@ const Login= () => {
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
-                onChange ={(e) => setEmail(e.target.value)}
+                onChange ={(event) => setEmail(event.target.value)}
                 required
               />
               <label>Password</label>
               <input
                 id="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(event) => setPassword(event.target.value)}
                 type="password"
                 className="form-control mt-1"
                 placeholder="Enter password"

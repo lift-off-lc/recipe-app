@@ -5,18 +5,41 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Search from "../pages/SearchResults";
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import PlaceIcon from "@mui/icons-material/Place";
 import Button from "@mui/material-next/Button";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import { useAuth } from "./Firebase/context/AuthContext";
+import { useAuth} from "./Firebase/context/AuthContext";
 import LogOut from "../pages/LogOut";
+import auth from "./Firebase/config/firebase";
 
 
 function NavBar() {
   const { currentUser, signOutUser } = useAuth();
   const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const user = auth.currentUser;
+        const token = user && (await user.getIdToken());
+
+        const payloadHeader = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const res = await fetch("http://localhost:3001", payloadHeader);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   return (
     <>
@@ -51,31 +74,31 @@ function NavBar() {
                 {" "}
                 Grocery Location <PlaceIcon />{" "}
               </Nav.Link>
-              {!currentUser ? 
-              <>
-              <Button
-                color="secondary"
-                size="small"
-                variant="outlined"
-                href="/login"
-                className="me-auto my-2 my-lg-0"
-              >
-                <AccountCircleIcon fontSize="large" />
-              </Button>
-              </>
-              : 
-              <>
-              <Button
-              color="secondary"
-              size="small"
-              variant="outlined"
-              href="/logout"
-              className="me-auto my-2 my-lg-0"
-              onClick={() => setModal(true)}
-            >
-              <LogoutOutlinedIcon fontSize="large" />
-            </Button>
-            </>
+              {!currentUser ?
+                <>
+                  <Button
+                    color="secondary"
+                    size="small"
+                    variant="outlined"
+                    href="/login"
+                    className="me-auto my-2 my-lg-0"
+                  >
+                    <AccountCircleIcon fontSize="large" />
+                  </Button>
+                </>
+                :
+                <>
+                  <Button
+                    color="secondary"
+                    size="small"
+                    variant="outlined"
+                    href="/logout"
+                    className="me-auto my-2 my-lg-0"
+                    onClick={() => setModal(true)}
+                  >
+                    <LogoutOutlinedIcon fontSize="large" />
+                  </Button>
+                </>
               }
             </Nav>
             {modal && <LogOut modal={modal} setModal={setModal} />}
