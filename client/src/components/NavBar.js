@@ -10,16 +10,20 @@ import Button from "@mui/material-next/Button";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { getAuth, signOut } from "firebase/auth";
 import useUser from "../hooks/useUser";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 
 function NavBar() {
   const {user, isLoading} = useUser();
-  const navigate=useNavigate();
-  const logOut = () => {
-    signOut(getAuth());
-    navigate('/')
-}
+  const navigate = useNavigate();
+
+  const logOut = async() => {
+    
+      await signOut(getAuth());
+      navigate('');     
+    }
+  
+
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -57,11 +61,8 @@ function NavBar() {
                 {" "}
                 Grocery Location <PlaceIcon />{" "}
               </Nav.Link>
-              {
-                user
-                ? <Button color="success" size="small" variant="outlined" className="me-auto my-2 my-lg-0" onClick={logOut}>Sign Out</Button>
-                : <Button color="secondary" size="small" variant="outlined" href="/login" className="me-auto my-2 my-lg-0"><AccountCircleIcon fontSize="large" /></Button>
-              }
+              {user && <Nav.Link color="secondary" size="small" variant="outlined" className="me-auto my-2 my-lg-0" onClick={logOut}>Sign Out</Nav.Link>}
+                {(!user&&!isLoading) && <Nav.Link color="secondary" size="small" variant="outlined" href="/login" className="me-auto my-2 my-lg-0"><AccountCircleIcon fontSize="large" /></Nav.Link>}
             </Nav>
           </Navbar.Collapse>
         </Container>

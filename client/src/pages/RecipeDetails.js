@@ -31,7 +31,7 @@ export default function RecipeDetails() {
     alert("Recipe has been add to shopping list!");
   }
 
-  useEffect(() => {
+  useEffect((recipeId) => {
     fetch(`http://localhost:8000/recipe/${recipeId}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data));

@@ -19,15 +19,15 @@ export default function Recipe(props) {
   const navigate = useNavigate();
   
   useEffect(() => {
-    const loadRecipeInfo = async() => {
-      const token = user && await user.getIdToken();
+    const loadRecipeInfo =  (recipeId, user, async() => {
+      const token = user && await getIdToken(user, true);
       const response = await axios.get(`/recipe/${recipeId}`, { 
         headers: { authtoken: token },
       });
       const newRecipeInfo = response.data;
       setRecipeInfo(newRecipeInfo)
             
-    }
+    });
     loadRecipeInfo();
     
   }, []);

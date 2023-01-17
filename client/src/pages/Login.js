@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,15 +15,16 @@ const Login = () => {
     } catch (e) {
       setError(e.message);
     }
-  }
+  };
 
   return (
-    <>
+    <>  
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <div className="Auth-form">
           <div className="Auth-form-content">
+          {error && <h1>{error}</h1>}
             <h3 className="Auth-form-title">Sign In</h3>
-            {error && <p className="error">{error}</p>}
+            
             <div className="form-group mt-3">
               <input
                 type="email"
@@ -33,8 +33,7 @@ const Login = () => {
                 value={email}
                 onChange={e=>setEmail(e.target.value)}
               />
-            </div>
-            <div className="form-group mt-3">
+           
               <input
                 type="password"
                 className="form-control mt-1"
@@ -42,22 +41,19 @@ const Login = () => {
                 value={password}
                 onChange={e=>setPassword(e.target.value)}
               />
-            </div>
-            <div className="d-grid gap-2 mt-3">
               <button className="btn btn-primary" onClick={signIn}>
                 Submit
               </button>
-            </div>
-            <div>
               <p className="forgot-password text-right mt-2">
-                Forgot <a href="#">password?</a>
+                Forgot <Link to={"/resetpassword"}>password?</Link>
               </p>
               <p className="sign-up text-right mt-2">
                 Don't have an account? <a href="./SignUp">Sign Up</a>
               </p>
-            </div>
+            
           </div>
-        </form>
+        </div>
+      </div>
       </div>
     </>
   );

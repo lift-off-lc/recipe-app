@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
+import useUser from "../hooks/useUser";
 
 const SignUp = () => {
   const [displayName, setDisplayName] = useState('');
@@ -8,37 +9,34 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
+  const {user, isLoading} = useUser();
   const navigate = useNavigate();
 
   const createAccount = async () => {
     try {
       //if passwords don't match, function stops after error is shown
-      if (password !== confirmPassword) {
-        setError('Passwords must match');
-        return;
-        } else {
+        if(password !== confirmPassword){
+            setError('Password must match Confirm Password');
+            return;
+        }
         await createUserWithEmailAndPassword(getAuth(), email, password);
-        updateProfile(getAuth(), {
-          displayName: { displayName }
-        });
         navigate('/recipe');
-      }
-    } catch (e) {
-      setError(e.message);
+        updateProfile(user, displayName, null);
+    } catch(e) {
+        setError(e.message);
     }
-  };
+    
+  }
 
 
   return (
     <>
       <div className="sign-up-form-container">
-        <form className="sign-up-form">
+      {error && <h2 className="error">{error}</h2>}
+        <div className="sign-up-form">
           <div className="sign-up-form-content">
-           <> 
            <div className="sign-up-form-title">   
               <h3>Sign Up</h3>
-              {error && <h2 className="error">{error}</h2>}
             </div>
 
             <div className="form-group.mt-3">
@@ -100,11 +98,10 @@ const SignUp = () => {
                 </div>
               </div>
             </div>
-            </>
           </div>
-        </form>
+        </div>
       </div>
-    </>
+      </>
   );
 }
 export default SignUp;

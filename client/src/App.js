@@ -13,13 +13,15 @@ import AddRecipe from "./pages/AddRecipe";
 import FavoriteRecipe from "./pages/FavoriteRecipe";
 import ShoppingList from "./pages/ShoppingList";
 import GroceryLocation from "./pages/GroceryLocation";
+import NotFoundPage from "./pages/NotFoundPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <NavBar />
-        <div className="page.body">
+        <div id="page.body">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
@@ -30,6 +32,8 @@ function App() {
             <Route path="/shoppinglist" element={<ShoppingList />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/grocery" element={<GroceryLocation />} />
+            <Route path="*" element={<NotFoundPage/>} />
+            <Route path="/resetpassword" element={<ResetPasswordPage/>} />
           </Routes>
         </div>
         <Footer />

@@ -2,12 +2,11 @@ import fs from 'fs';
 import admin from 'firebase-admin'
 import express from "express";
 import { db, connectToDb } from "./db.js";
-import { ObjectId } from "mongodb";
 import cors from "cors";
 
 //authentication admin requirement
 const credentials = JSON.parse(
-  fs.readFileSync('../credentials.json')
+  fs.readFileSync('./credentials.json')
 );
 admin.initializeApp({
   credential: admin.credential.cert(credentials),

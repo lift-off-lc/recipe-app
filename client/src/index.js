@@ -13,16 +13,14 @@ const firebaseConfig = {
   storageBucket: "recipe-app-1a1b0.appspot.com",
   messagingSenderId: "776628122529",
   appId: "1:776628122529:web:af77b17f10175bc38c51e0"
-};
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  
     <App />
-  
 );
 
 // If you want to start measuring performance in your app, pass a function

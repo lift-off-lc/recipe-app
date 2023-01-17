@@ -156,6 +156,11 @@ export default function Footer() {
                       Mongo DB
                     </a>
                   </p>
+                  <p>
+                    <a href="#!" className="text-reset">
+                      Firebase
+                    </a>
+                  </p>
                 </MDBCol>
 
                 <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
