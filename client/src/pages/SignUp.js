@@ -1,53 +1,88 @@
-import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 
-function SignUp() {
+const SignUp = () => {
+  const [displayName, setDisplayName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const createAccount = async () => {
+    try {
+      //if passwords don't match, function stops after error is shown
+      if (password !== confirmPassword) {
+        setError('Passwords must match');
+        return;
+        } else {
+        await createUserWithEmailAndPassword(getAuth(), email, password);
+        updateProfile(getAuth(), {
+          displayName: { displayName }
+        });
+        navigate('/recipe');
+      }
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+
+
   return (
     <>
       <div className="sign-up-form-container">
         <form className="sign-up-form">
           <div className="sign-up-form-content">
-            <div className="sign-up-form-title">
+           <> 
+           <div className="sign-up-form-title">   
               <h3>Sign Up</h3>
+              {error && <h2 className="error">{error}</h2>}
             </div>
 
             <div className="form-group.mt-3">
-              <label>First Name</label>
               <input
                 type="text"
                 className="form-control mt-1"
-                placeholder="First name"
+                placeholder="Display Name"
+                value={displayName}
+                onChange={e=>setDisplayName(e.target.value)}
               />
             </div>
 
             <div className="form-group.mt-3">
-              <label>Last Name</label>
-              <input
-                type="text"
-                className="form-control mt-1"
-                placeholder="Last Name"
-              />
-            </div>
-
-            <div className="form-group.mt-3">
-              <label>Email</label>
               <input
                 type="email"
                 className="form-control mt-1"
-                placeholder="example@emailClient.com"
+                placeholder="Email Address"
+                value={email}
+                onChange={e=>setEmail(e.target.value)}
               />
             </div>
 
             <div className="form-group.mt-3">
-              <label>Password</label>
               <input
                 type="password"
                 className="form-control mt-1"
-                placeholder="Ex: $caffeineHyperLoop37!"
+                placeholder="Password"
+                value={password}
+                onChange={e=>setPassword(e.target.value)}
+              />
+            </div>
+
+            <div className="form-group.mt-3">
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={e=>setConfirmPassword(e.target.value)}
               />
             </div>
 
             <div className="d-grid" style={{ paddingTop: "30px" }}>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary" onClick={createAccount}>
                 Sign Up
               </button>
 
@@ -65,6 +100,7 @@ function SignUp() {
                 </div>
               </div>
             </div>
+            </>
           </div>
         </form>
       </div>

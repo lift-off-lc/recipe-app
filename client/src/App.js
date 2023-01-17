@@ -1,11 +1,8 @@
 import "./App.css";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import RecipeList from "./pages/RecipeList";
-import React from "react";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import { Route, BrowserRouter, Routes } from "react-router-dom";
 import "./index.css";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";

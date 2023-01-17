@@ -5,20 +5,25 @@ import Badge from "react-bootstrap/Badge";
 import { useState } from "react";
 import RecipeServices from "../components/RecipeServices";
 import { useNavigate } from "react-router-dom";
+import useUser from "../hooks/useUser";
 
 export default function AddRecipe() {
+  const { user, isLoading } = useUser();
   const navigate = useNavigate()
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [image, setImage] = useState("");
   const [method, setMethod] = useState("");
   const [category, setCategory] = useState("");
+  const [authorId, setAuthorId] = useState("");
 
   const handleNameChange = (ev) => setName(ev.target.value);
   const handleIngredientChange = (ev) => setIngredients(ev.target.value);
   const handleMethodChange = (ev) => setMethod(ev.target.value);
   const handleImageChange = (ev) => setImage(ev.target.value);
   const handleCategoryChange = (ev) => setCategory(ev.target.value);
+  const handleAuthorIdChange = (ev) => setAuthorId(ev.target.value);
+  
 
   const clearState = () => {
     setName("");
@@ -26,6 +31,7 @@ export default function AddRecipe() {
     setMethod("");
     setImage("");
     setCategory("");
+    setAuthorId("");
   };
 
   const handleSubmit = (e) => {
@@ -36,6 +42,7 @@ export default function AddRecipe() {
       image: image,
       method: method,
       category: category,
+      authorId: authorId,
     };
     RecipeServices.create(newRecipe).then(() => clearState());
     alert("Recipe Submitted");
@@ -61,11 +68,21 @@ export default function AddRecipe() {
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Recipe name"
+              placeholder="Recipe Name"
               onChange={handleNameChange}
               value={name}
             />
           </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Control
+              type="text"
+              onChange={handleAuthorIdChange}
+              value={authorId}
+              readOnly
+              >{user.displayName}</Form.Control>
+          </Form.Group>
+
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Categories</Form.Label>

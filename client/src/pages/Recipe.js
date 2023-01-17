@@ -1,19 +1,44 @@
+import { useState, useEffect } from "react";
+import { getIdToken } from "firebase/auth";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import React from "react";
 import Rating from "@mui/material/Rating";
 import RecipeServices from "../components/RecipeServices";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import axios from 'axios';
+import useUser from "../hooks/useUser";
+
+
 export default function Recipe(props) {
+  const [recipeInfo, setRecipeInfo] = useState({name: null, ingredients: null, image: null, method: null, category: null, authorId: null, favoritedIds: []});
+  const { user, isLoading } = useUser();
+  const { recipeId } = useParams();
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    const loadRecipeInfo = async() => {
+      const token = user && await user.getIdToken();
+      const response = await axios.get(`/recipe/${recipeId}`, { 
+        headers: { authtoken: token },
+      });
+      const newRecipeInfo = response.data;
+      setRecipeInfo(newRecipeInfo)
+            
+    }
+    loadRecipeInfo();
+    
+  }, []);
 
   const handleDelete = () => {
     RecipeServices.deleteFavorite(props.recipe._id);
     setTimeout(() => navigate(0), 500);
   };
+
+  
+
   return (
     <Col className="p-3">
       <Card border="dark" style={{ width: "20rem" }}>
